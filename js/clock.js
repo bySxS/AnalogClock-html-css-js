@@ -1,8 +1,8 @@
 const SmoothClock = true //плавность
-const accurateMinutesClock = false
-const addNumber = true
-const numberOnlyHour = true
-const bigNumberInHour = true
+const AccurateMinutesClock = false
+const AddNumber = true
+const NumberOnlyBig = true
+const BigNumberInHour = true
 
 function getTimeWithTimeZone(timeZone) {
     return new Date(new Date().toLocaleString('en-US', {timeZone}))
@@ -23,7 +23,7 @@ let secondsStartDegree,
     minutesStartDegree,
     hoursStartDegree
 
-if (accurateMinutesClock) {//точность
+if (AccurateMinutesClock) {//точность
     secondsStartDegree = 360 / 60 * seconds
     minutesStartDegree = 360 / 60 * minutes + 6 / 60 * seconds
     hoursStartDegree = 360 / 12 * hours + 30 / 60 * minutes + 0.5 / 60 * seconds
@@ -45,8 +45,8 @@ for (let i = 1; i <= 60; i++) {
         numberHour ++
         span.className = 'clock__stroke clock__stroke--' + i
         let number = 0
-        if (bigNumberInHour) {number = numberHour} else {number = i}
-        if (addNumber) {
+        if (BigNumberInHour) {number = numberHour} else {number = i}
+        if (AddNumber) {
             spanNumber = '<span class="clock_number clock_number--big">' + number + '</span>'
             span.innerHTML = spanNumber
         }
@@ -54,7 +54,7 @@ for (let i = 1; i <= 60; i++) {
     } else {
 
         span.className = 'clock__stroke clock__stroke--small clock__stroke--' + i
-        if ((addNumber)&&(numberOnlyHour === false)) {
+        if ((AddNumber)&&(NumberOnlyBig === false)) {
             spanNumber = '<span class="clock_number clock_number--small">' + i + '</span>'
             span.innerHTML = spanNumber
         }
