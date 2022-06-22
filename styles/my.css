@@ -1,26 +1,112 @@
+.size3 {
+    --sizeСlock: 5em;
+    --paddClock: 50%;
+    --radiusClock: 2.5em;
+
+    --sizeHand: 5em;
+    --paddHand: 10%;
+
+    --sizeHour: 1.25em;
+    --sizeMinutes: 1.7em;
+    --sizeSeconds: 2.05em;
+
+    --radiusStroke: 0em;
+    --sizeStroke: 0.3em;
+    --sizeStrokeSmall: 0.15em;
+    --fontSize: 100px;
+
+    --sizeNumberSmall: 13px;
+    --sizeNumberBig: 25px;
+}
+
+.size2 {
+    --sizeСlock: 2em;
+    --paddClock: 40%;
+    --radiusClock: 0.5em;
+
+    --sizeHand: 1.9em;
+    --paddHand: 27%;
+
+    --sizeHour: 0.50em;
+    --sizeMinutes: 0.70em;
+    --sizeSeconds: 0.80em;
+
+    --radiusStroke: 1em;
+    --sizeStroke: 0.07em;
+    --sizeStrokeSmall: 0.03em;
+    --fontSize: 250px;
+
+    --sizeNumberSmall: 13px;
+    --sizeNumberBig: 25px;
+}
+
+.size1 {
+    --sizeСlock: 1em;
+    --paddClock: 50%;
+    --radiusClock: 0.5em;
+
+    --sizeHand: 1em;
+    --paddHand: 50%;
+
+    --sizeHour: 0.25em;
+    --sizeMinutes: 0.35em;
+    --sizeSeconds: 0.45em;
+
+    --radiusStroke: 0em;
+    --sizeStroke: 0.04em;
+    --sizeStrokeSmall: 0.015em;
+    --fontSize: 250px;
+
+    --sizeNumberSmall: 0px;
+    --sizeNumberBig: 15px;
+}
+
+.theme-UA {
+    --backgroundClock: #ffe000;
+    --shadowClock: #000;
+    --backgroundStroke: -webkit-linear-gradient(90deg,#e4ff04bf,#004effed);
+}
+
+.clock_number {
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.clock_number--small {
+    font-size: var(--sizeNumberSmall);
+    padding-top: 20px;
+}
+
+.clock_number--big {
+    font-size: var(--sizeNumberBig);
+    padding-top: 30px;
+}
+
 .clock {
-    box-shadow: inset 0 0 0 0.02em #000;
+    box-shadow: inset 0 0 0 0.02em var(--shadowClock);
     display: inline-block;
-    border-radius: 0.5em;
+    border-radius: var(--radiusClock);
     position: relative;
-    font-size: 250px;
+    font-size: var(--fontSize);
     overflow: hidden;
-    height: 1em;
-    width: 1em;
+    background: var(--backgroundClock);
+    height: var(--sizeСlock);
+    width: var(--sizeСlock);
 }
 .clock::after {
     content: '';
-    background-color: #fff;
+    /*background-color: #fff;*/
     border-radius: 0.5em;
     margin-left: -0.5em;
     margin-top: -0.5em;
     position: absolute;
     font-size: 0.01em;
     display: block;
-    height: 1em;
-    width: 1em;
-    left: 50%;
-    top: 50%;
+    height: var(--sizeСlock);
+    width: var(--sizeСlock);
+    left: var(--paddClock);
+    top: var(--paddClock);
 }
 .clock__hand-container, .clock__hand, .clock__stroke {
     margin-left: -0.5em;
@@ -28,10 +114,10 @@
     font-size: inherit;
     position: absolute;
     display: block;
-    height: 1em;
-    width: 1em;
-    left: 50%;
-    top: 50%;
+    height: var(--sizeHand);
+    width: var(--sizeHand);
+    left: var(--paddHand);
+    top: var(--paddHand);
 }
 .clock__stroke::after {
     content: "";
@@ -40,7 +126,7 @@
     margin-left: -0.01em;
     position: absolute;
     display: block;
-    height: 0.05em;
+    height: var(--sizeStroke);
     width: 0.02em;
     top: 0.02em;
     left: 50%;
@@ -48,11 +134,13 @@
 .clock__stroke--small::after {
     content: "";
     border-radius: 0 0 0.0125em 0.0125em;
-    height: 0.025em;
+    height: var(--sizeStrokeSmall);
     width: 0.015em;
 }
 .clock__stroke--1 {
     transform: rotate(6deg);
+    background: var(--backgroundStroke);
+    border-radius: var(--radiusStroke);
 }
 .clock__stroke--2 {
     transform: rotate(12deg);
@@ -237,7 +325,7 @@
     font-size: inherit;
     position: absolute;
     display: block;
-    height: 0.25em;
+    height: var(--sizeHour);
     width: 0.05em;
     bottom: 50%;
     left: 50%;
@@ -251,7 +339,7 @@
     font-size: inherit;
     position: absolute;
     display: block;
-    height: 0.4em;
+    height: var(--sizeMinutes);
     width: 0.03em;
     bottom: 50%;
     left: 50%;
@@ -265,7 +353,7 @@
     font-size: inherit;
     position: absolute;
     display: block;
-    height: 0.46em;
+    height: var(--sizeSeconds);
     width: 0.01em;
     bottom: 50%;
     left: 50%;
